@@ -92,4 +92,4 @@ Thumbnails are stored as assets. If title and description are available, they ge
 
 Copyright 2019 Raffael Jesche under the MIT license.
 
-See [LICENSE][11] for more information.
+See [LICENSE](/LICENSE) for more information.
