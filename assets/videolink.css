@@ -1,0 +1,22 @@
+#cp_videolinkfield_find  {
+    background-color: #0b52b0;
+    left: 10px !important;
+}
+#cp_videolinkfield_submit {
+    background-color: #2276d2;
+}
+#cp_videolinkfield_find button, #cp_videolinkfield_submit button {
+    color: #fff;
+}
+#cp_videolinkfield_url-l {
+    font-weight: bold;
+}
+@media (min-width: 420px) {
+    #cp_videolink_modal .mce-textbox {
+        width: 300px !important;
+        left: 110px !important;
+    }
+    #cp_videolink_modal .mce-container-body.mce-abs-layout {
+        overflow: initial;
+    }
+}
