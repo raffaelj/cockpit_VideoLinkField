@@ -1,4 +1,10 @@
 
+<div>
+    <ul class="uk-breadcrumb">
+        <li><a href="@route('/settings')">@lang('Settings')</a></li>
+        <li class="uk-active"><span>@lang('VideoLinkField')</span></li>
+    </ul>
+</div>
 
 <div riot-view>
 
