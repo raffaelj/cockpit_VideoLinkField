@@ -203,11 +203,11 @@ function parseVideoUrl(url) {
 App.$(document).on("init-wysiwyg-editor", function(e, editor) {
 
     // custom TinyMCE plugin
-    tinymce.PluginManager.add('cp_videolink', function(ed) {
+    tinymce.PluginManager.add('cpvideolink', function(ed) {
 
         var getData = function () {
 
-            var url = document.getElementById('cp_videolinkfield_url').value;
+            var url = document.getElementById('cpvideolinkfield_url').value;
 
             var video = parseVideoUrl(url);
             var meta = {
@@ -216,21 +216,21 @@ App.$(document).on("init-wysiwyg-editor", function(e, editor) {
             };
 
             if (video.id != 'none') {
-                document.getElementById('cp_videolinkfield_id').value = video.id;
-                document.getElementById('cp_videolinkfield_provider').value = video.provider;
+                document.getElementById('cpvideolinkfield_id').value = video.id;
+                document.getElementById('cpvideolinkfield_provider').value = video.provider;
 
                 App.request('/videolinkfield/getVideoLinkData', meta).then(function(data) {
 
                     if (data && data._id) {
-                        document.getElementById('cp_videolinkfield_asset_id').value = data._id;
-                        document.getElementById('cp_videolinkfield_asset_width').value = data.width;
-                        document.getElementById('cp_videolinkfield_asset_height').value = data.height;
+                        document.getElementById('cpvideolinkfield_asset_id').value = data._id;
+                        document.getElementById('cpvideolinkfield_asset_width').value = data.width;
+                        document.getElementById('cpvideolinkfield_asset_height').value = data.height;
 
-                        // document.getElementById('cp_videolinkfield_preview').innerHTML = '<img alt="" src="'+App.route('/cockpit/utils/thumb_url') + '?src='+data._id+'&h=100&o=1'+'" />'
+                        // document.getElementById('cpvideolinkfield_preview').innerHTML = '<img alt="" src="'+App.route('/cockpit/utils/thumb_url') + '?src='+data._id+'&h=100&o=1'+'" />'
                     }
 
                     if (data && data.title) {
-                        var node = document.getElementById('cp_videolinkfield_text');
+                        var node = document.getElementById('cpvideolinkfield_text');
 
                         if (!node.value || node.value == '' || node.value == 'undefined' || node.value == 'none') {
                             node.value = data.title;
@@ -264,7 +264,7 @@ App.$(document).on("init-wysiwyg-editor", function(e, editor) {
 
             return ed.windowManager.open({
                 title: App.i18n.get('Enter Video Url'),
-                id: 'cp_videolink_modal',
+                id: 'cpvideolink_modal',
                 data,
                 bodyType: 'tabpanel',
                 body: [
@@ -276,25 +276,25 @@ App.$(document).on("init-wysiwyg-editor", function(e, editor) {
                                     type: 'textbox',
                                     name: 'url',
                                     label: App.i18n.get('Url'),
-                                    id: 'cp_videolinkfield_url'
+                                    id: 'cpvideolinkfield_url'
                                 },
                                 {
                                     type: 'textbox',
                                     name: 'text',
                                     label: App.i18n.get('Display Text'),
-                                    id: 'cp_videolinkfield_text'
+                                    id: 'cpvideolinkfield_text'
                                 },
                                 {
                                     type: 'textbox',
                                     name: 'title',
                                     label: App.i18n.get('Title'),
-                                    id: 'cp_videolinkfield_title'
+                                    id: 'cpvideolinkfield_title'
                                 },
                                 {
                                     type: 'textbox',
                                     name: 'asset_id',
                                     label: App.i18n.get('Asset ID'),
-                                    id: 'cp_videolinkfield_asset_id'
+                                    id: 'cpvideolinkfield_asset_id'
                                 },
                             ]
                         },
@@ -306,44 +306,44 @@ App.$(document).on("init-wysiwyg-editor", function(e, editor) {
                                     type: 'textbox',
                                     name: 'id',
                                     label: App.i18n.get('ID'),
-                                    id: 'cp_videolinkfield_id'
+                                    id: 'cpvideolinkfield_id'
                                 },
                                 {
                                     type: 'textbox',
                                     name: 'provider',
                                     label: App.i18n.get('Provider'),
-                                    id: 'cp_videolinkfield_provider'
+                                    id: 'cpvideolinkfield_provider'
                                 },
                                 {
                                     type: 'textbox',
                                     name: 'asset_width',
                                     label: App.i18n.get('Width'),
-                                    id: 'cp_videolinkfield_asset_width'
+                                    id: 'cpvideolinkfield_asset_width'
                                 },
                                 {
                                     type: 'textbox',
                                     name: 'asset_height',
                                     label: App.i18n.get('Height'),
-                                    id: 'cp_videolinkfield_asset_height'
+                                    id: 'cpvideolinkfield_asset_height'
                                 },
                             ]
                         },
                         /*{
                             title: 'Preview',
                             type: 'form',
-                            html: '<span id="cp_videolinkfield_preview">test</span>'
+                            html: '<span id="cpvideolinkfield_preview">test</span>'
                         },*/
                     ]
                 ,
                 buttons: [
                     {
                         text: App.i18n.get('Find Values'),
-                        id: 'cp_videolinkfield_find',
+                        id: 'cpvideolinkfield_find',
                         onclick: function() {getData();}
                     },
                     {
                         text: 'OK',
-                        id: 'cp_videolinkfield_submit',
+                        id: 'cpvideolinkfield_submit',
                         onclick: 'submit'
                     },
                     {text: 'Cancel', onclick: 'close'}
@@ -392,7 +392,7 @@ App.$(document).on("init-wysiwyg-editor", function(e, editor) {
             });
         };
 
-        ed.addMenuItem('cp_videolink', {
+        ed.addMenuItem('cpvideolink', {
             icon: 'media',
             text: App.i18n.get('Insert/Edit Video'),
             onclick: function(){
@@ -402,7 +402,7 @@ App.$(document).on("init-wysiwyg-editor", function(e, editor) {
             prependToContext: true
         });
 
-        ed.addButton('cp_videolink', {
+        ed.addButton('cpvideolink', {
             icon: 'media',
             tooltip: App.i18n.get('Insert/Edit Video'),
             onclick: function(){
@@ -419,24 +419,31 @@ App.$(document).on("init-wysiwyg-editor", function(e, editor) {
 
     });
 
-    // enable plugin
-    editor.settings.plugins = editor.settings.plugins + ' cp_videolink';
+    // don't enable automatically, if EditorFormats addon is installed
+    if (editor.settings.modified === undefined) {
 
-    // add toolbar button
-    if (typeof editor.settings.toolbar == 'undefined') {
-        // add default toolbar buttons
-        editor.settings.toolbar = 'undo redo | styleselect | bold italic | alignleft'
-                                + 'aligncenter alignright alignjustify | '
-                                + 'bullist numlist outdent indent | link image';
+        // enable plugin
+        editor.settings.plugins = editor.settings.plugins + ' cpvideolink';
+
+        // add toolbar button
+        if (typeof editor.settings.toolbar == 'undefined') {
+            // add default toolbar buttons
+            editor.settings.toolbar = 'undo redo | styleselect | bold italic | alignleft'
+                                    + 'aligncenter alignright alignjustify | '
+                                    + 'bullist numlist outdent indent | link image';
+        }
+        editor.settings.toolbar += ' | cpvideolink';
+
     }
-    editor.settings.toolbar += ' | cp_videolink';
 
-    editor.settings.content_style = 'a[data-video-id] {'
-        + 'display: inline-block;'
-        + 'width:30em;'
-        + 'padding:1em;'
-        + 'text-align:center;'
-        + 'border:1px solid #ccc;'
-        + '}';
+    if (editor.settings.plugins.indexOf('cpvideolink') !== -1) {
+        editor.settings.content_style = 'a[data-video-id] {'
+            + 'display: inline-block;'
+            + 'width:30em;'
+            + 'padding:1em;'
+            + 'text-align:center;'
+            + 'border:1px solid #ccc;'
+            + '}';
+    }
 
 });

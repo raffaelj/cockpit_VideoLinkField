@@ -5,7 +5,7 @@
  * @see       https://github.com/raffaelj/cockpit_VideoLinkField/
  * @see       https://github.com/agentejo/cockpit/
  * 
- * @version   0.1.0
+ * @version   0.1.1
  * @author    Raffael Jesche
  * @license   MIT
  */
