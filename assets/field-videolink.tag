@@ -149,6 +149,8 @@
 // renderer in entries view
 App.Utils.renderer['videolink'] = function(v) {
 
+    if (!v) return;
+
     if (v.asset_id) {
         var id = 'img'+Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);;
 
