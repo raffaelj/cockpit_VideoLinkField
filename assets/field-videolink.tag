@@ -439,6 +439,9 @@ App.$(document).on("init-wysiwyg-editor", function(e, editor) {
     }
 
     if (editor.settings.plugins.indexOf('cpvideolink') !== -1) {
+        if (typeof editor.settings.content_style == 'undefined') {
+            editor.settings.content_style = '';
+        }
         editor.settings.content_style += 'a[data-video-id] {'
             + 'display: inline-block;'
             + 'width:30em;'
