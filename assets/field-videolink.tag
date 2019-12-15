@@ -439,7 +439,7 @@ App.$(document).on("init-wysiwyg-editor", function(e, editor) {
     }
 
     if (editor.settings.plugins.indexOf('cpvideolink') !== -1) {
-        editor.settings.content_style = 'a[data-video-id] {'
+        editor.settings.content_style += 'a[data-video-id] {'
             + 'display: inline-block;'
             + 'width:30em;'
             + 'padding:1em;'
