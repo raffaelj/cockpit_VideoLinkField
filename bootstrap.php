@@ -5,7 +5,7 @@
  * @see       https://github.com/raffaelj/cockpit_VideoLinkField/
  * @see       https://github.com/agentejo/cockpit/
  * 
- * @version   0.1.2
+ * @version   0.1.3
  * @author    Raffael Jesche
  * @license   MIT
  */
@@ -69,7 +69,7 @@ $this->module('videolinkfield')->extend([
             $meta['description'] = strip_tags($info['description'] ?? '');
 
         }
-        
+
         if ($folder = $this->getFolder()) {
             $meta['folder'] = $folder;
         }
