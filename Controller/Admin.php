@@ -30,14 +30,14 @@ class Admin extends \Cockpit\AuthController {
         }
 
         $config = $this->app->storage->getKey('cockpit/options', 'videolinkfield', false);
-        
+
         if (!$config) {
             $config = [
                 'folder_id' => '',
                 'folder_name' => '',
             ];
         }
-        
+
         return $this->render('videolinkfield:views/settings.php', compact('config'));
 
     }
