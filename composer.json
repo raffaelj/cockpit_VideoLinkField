@@ -1,0 +1,23 @@
+{
+    "name": "raffaelj/cockpit-videolinkfield",
+    "type": "cockpit-module",
+    "description": "Video thumbnail downloader from YouTube and Vimeo for Cockpit CMS",
+    "keywords": ["cockpit", "YouTube", "Vimeo", "thumbnail download"],
+    "homepage": "https://github.com/raffaelj/cockpit_VideoLinkField",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Raffael Jesche",
+            "homepage": "https://www.rlj.me"
+        }
+    ],
+    "require": {
+        "composer/installers": "^1.9"
+    },
+    "config": {
+        "vendor-dir": "lib/vendor"
+    },
+    "extra": {
+        "installer-name": "VideoLinkField"
+    }
+}
