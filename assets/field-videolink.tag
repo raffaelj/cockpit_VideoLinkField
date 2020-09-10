@@ -32,7 +32,7 @@
         this.set    = {};
         this.value  = {};
         this.fields = [];
-        
+
         var myFields = [
             {
                 'type': 'text',
@@ -425,7 +425,9 @@ App.$(document).on("init-wysiwyg-editor", function(e, editor) {
     if (editor.settings.modified === undefined) {
 
         // enable plugin
-        editor.settings.plugins = editor.settings.plugins + ' cpvideolink';
+        if (!editor.settings.plugins.match(/cpvideolink/)) {
+            editor.settings.plugins = editor.settings.plugins + ' cpvideolink';
+        }
 
         // add toolbar button
         if (typeof editor.settings.toolbar == 'undefined') {
@@ -434,7 +436,9 @@ App.$(document).on("init-wysiwyg-editor", function(e, editor) {
                                     + 'aligncenter alignright alignjustify | '
                                     + 'bullist numlist outdent indent | link image';
         }
-        editor.settings.toolbar += ' | cpvideolink';
+        if (!editor.settings.toolbar.match(/cpvideolink/)) {
+            editor.settings.toolbar += ' | cpvideolink';
+        }
 
     }
 
@@ -442,13 +446,16 @@ App.$(document).on("init-wysiwyg-editor", function(e, editor) {
         if (typeof editor.settings.content_style == 'undefined') {
             editor.settings.content_style = '';
         }
-        editor.settings.content_style += 'a[data-video-id] {'
-            + 'display: inline-block;'
-            + 'width:30em;'
-            + 'padding:1em;'
-            + 'text-align:center;'
-            + 'border:1px solid #ccc;'
-            + '}';
+
+        if (!editor.settings.content_style.match(/a\[data-video-id\]/)) {
+            editor.settings.content_style += 'a[data-video-id] {'
+                + 'display: inline-block;'
+                + 'width:30em;'
+                + 'padding:1em;'
+                + 'text-align:center;'
+                + 'border:1px solid #ccc;'
+                + '}';
+        }
     }
 
 });
