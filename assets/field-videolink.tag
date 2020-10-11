@@ -414,11 +414,6 @@ App.$(document).on("init-wysiwyg-editor", function(e, editor) {
 
         });
 
-        // load css file for dialog
-        App.$(document).ready(function() {
-            App.assets.getCss('/videolinkfield/style.css');
-        });
-
     });
 
     // don't enable automatically, if EditorFormats addon is installed
