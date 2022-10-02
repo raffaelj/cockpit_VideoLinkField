@@ -1,5 +1,11 @@
 # VideoLinkField Addon for Cockpit CMS
 
+**This addon is not compatible with Cockpit CMS v2.**
+
+See also [Cockpit CMS v1 docs](https://v1.getcockpit.com/documentation), [Cockpit CMS v1 repo](https://github.com/agentejo/cockpit) and [Cockpit CMS v2 docs](https://getcockpit.com/documentation/), [Cockpit CMS v2 repo](https://github.com/Cockpit-HQ/Cockpit).
+
+---
+
 Copy a url from YouTube or Vimeo, click the Button "Find Values", wait a second and in the background starts a service, that downloads the video thumbnail and returns some meta data.
 
 It works without a YouTube API key.
